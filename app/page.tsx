@@ -1,14 +1,24 @@
+'use client'
+
 import React from 'react'
 import FunctionChooseWidget from '../components/FunctionChooseWidget'
 import FunctionSimulateWidget from '@/components/FunctionSimulateWidget'
-
+import { Provider } from 'react-redux'
+import store from './store'
 
 const Home = () => {
   return (
-    <div className='m-8 grid grid-cols-[1fr,2fr] h-screen gap-4'>
-      <FunctionChooseWidget />
-      <FunctionSimulateWidget/>
-    </div>
+    <Provider store={store}>
+      <div className='m-8 flex flex-row gap-4'>
+        <div className="">
+          <FunctionChooseWidget />
+        </div>
+        <div className="flex-grow">
+          <FunctionSimulateWidget />
+        </div>
+      </div>
+    </Provider>
+
   )
 }
 
